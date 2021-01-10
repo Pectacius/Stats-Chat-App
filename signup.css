@@ -105,3 +105,12 @@ body{
      visibility: visible;
  }
 
+.footnote{
+  margin-top: 20px;
+  text-align: center;
+}
+.signup{
+ 
+  text-decoration: none;
+}
+
