@@ -1,14 +1,32 @@
-{% extends 'chat/base.html' %}
-{% block content %}
-  <form action="{% url 'log_in' %}" method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <div>
-        {{ field.label_tag }}
-        {{ field }}
-      </div>
-    {% endfor %}
-    <button type="submit">Log in</button>
-  </form>
-  <p>Don't have an account? <a href="{% url 'sign_up' %}">Sign up!</a></p>
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{% static "chat/css/signup.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Log In</h2>
+        </div>
+        <form class="form" id="form" action="{% url 'log_in' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-control">
+                <label>{{ field.label_tag }}</label>
+
+                {{ field }}
+              </div>
+            {% endfor %}
+
+        <button type="submit">Submit</button>
+        <div class="footnote">
+        <p id="p2">Don't have an account? <a href="{% url 'sign_up' %}" class="signup"><b>Sign Up</b></a></p></div>
+        </form>
+    </div>
+</body>
+</html>

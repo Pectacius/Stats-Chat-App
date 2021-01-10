@@ -47,7 +47,7 @@ def log_in(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect(reverse('index'))
+            return redirect("/chat/friend")
         else:
             print(form.errors)
     return render(request, 'chat/login.html', {'form': form})
